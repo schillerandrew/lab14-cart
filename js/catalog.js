@@ -43,10 +43,11 @@ function addSelectedItemToCart() {
   console.log(item);
   let quantity = document.getElementById('quantity').value;
   console.log(quantity);
-  new CartItem(item, quantity);
-  // TODO: suss out the item picked from the select list
-  // TODO: get the quantity
-  // TODO: using those, add one item to the Cart
+  cart.addItem(item, quantity);
+  console.log(cart);
+  // DONE: suss out the item picked from the select list
+  // DONE: get the quantity
+  // DONE: using those, add one item to the Cart
 }
 
 // DONE: Update the cart count in the header nav with the number of items in the Cart
@@ -56,7 +57,6 @@ function updateCounter() {
   cartCounter++;
   spanElement.textContent = `${cartCounter}`;
   liElement[1].appendChild(spanElement);
-  // console.log(cart[0]);
 }
 
 // IN PROGRESS******************
@@ -65,12 +65,12 @@ function updateCartPreview() {
   // TODO: Get the item and quantity from the form
   let item = document.getElementById('items').value;
   console.log(item);
-  let quantity = document.getElementById('quantity');
+  let quantity = document.getElementById('quantity').value;
   console.log(quantity);
   // TODO: Add a new element to the cartContents div with that information
   let sectionElement = document.getElementsByTagName('section');
   let divElement = document.getElementById('cartContents');
-  divElement.textContent = `${item}, ${quantity}`;
+  divElement.textContent += `${item}: ${quantity}, `;
   sectionElement[1].appendChild(divElement);
 }
 
